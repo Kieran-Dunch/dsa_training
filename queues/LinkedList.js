@@ -34,6 +34,18 @@ class LinkedList {
     this.head = removedHead.getNextNode();
     return removedHead.data;
   }
+
+  printList() {
+    let currentNode = this.head;
+    let output = '<head> ';
+    while (currentNode !== null) {
+      output += currentNode.data + ' ';
+      currentNode = currentNode.getNextNode();
+    }
+    output += '<tail>';
+    console.log(output)
+    return output;
+  }
 }
 
 

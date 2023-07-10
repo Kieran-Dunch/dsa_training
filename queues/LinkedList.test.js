@@ -50,6 +50,6 @@ describe('LinkedList methods', () => {
     linkedList.addToHead(1);
     linkedList.addToHead(2);
     linkedList.addToHead(3);
-    expect(linkedList.printList()).toBe('3, 2, 1');
+    expect(linkedList.printList()).toBe('<head> 3 2 1 <tail>');
   });
 });
