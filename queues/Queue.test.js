@@ -10,4 +10,13 @@ describe('Queue', () => {
     expect(queue.hasOwnProperty('queue')).toBe(true);
     expect(queue.hasOwnProperty('size')).toBe(true);
   });
+
+  it('should have a method named `enqueue` that adds new data', () => {
+    expect(typeof queue.enqueue).toBe('function');
+    queue.enqueue('some data');
+    expect(queue.size).toBe(1);
+    queue.enqueue('some other data');
+    expect(queue.size).toBe(2);
+  });
+
 });

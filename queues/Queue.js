@@ -5,6 +5,12 @@ class Queue {
     this.queue = new LinkedList();
     this.size = 0;
   }
+
+  enqueue(data) {
+    this.queue.addToTail(data);
+    this.size++;
+    console.log(`Added ${data}! Queue size is now ${this.size}.`);
+  }
 }
 
 module.exports = Queue;
