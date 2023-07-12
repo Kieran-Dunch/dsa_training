@@ -1,9 +1,10 @@
 const LinkedList = require('./LinkedList');
 
 class BoundedQueue {
-  constructor() {
+  constructor(maxSize = Infinity) {
     this.queue = new LinkedList();
     this.size = 0;
+    this.maxSize = maxSize;
   }
 
   enqueue(data) {
@@ -13,10 +14,22 @@ class BoundedQueue {
   }
 
   dequeue() {
+    if (this.isEmpty()) {
+      console.log('Queue is empty!');
+      return null;
+    }
     const data = this.queue.removeHead();
     this.size--;
     console.log(`Removed ${data}! Queue size is now ${this.size}.`);
     return data;
+  }
+
+  hasRoom() {
+    return this.size < this.maxSize;
+  }
+
+  isEmpty() {
+    return this.size === 0;
   }
 }
 
