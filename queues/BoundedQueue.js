@@ -8,6 +8,10 @@ class BoundedQueue {
   }
 
   enqueue(data) {
+    if (!this.hasRoom()) {
+      console.log('Queue is full!');
+      return null;
+    }
     this.queue.addToTail(data);
     this.size++;
     console.log(`Added ${data}! Queue size is now ${this.size}.`);
