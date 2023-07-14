@@ -3,7 +3,7 @@ const BoundedQueue = require('./BoundedQueue');
 describe('BoundedQueue', () => {
   let queue;
   beforeEach(() => {
-    queue = new BoundedQueue();
+    queue = new BoundedQueue(3);
   });
 
   it('contains properties named `queue`, `size` and `maxSize`', () => {
