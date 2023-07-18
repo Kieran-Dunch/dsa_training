@@ -8,7 +8,7 @@ class Stack {
   }
 
   peek() {
-    if (this.size > 0) {
+    if (!this.isEmpty()) {
       const headData = this.stack.head.data;
       return headData;
     } else {
@@ -17,18 +17,30 @@ class Stack {
   }
 
   push(data) {
-
-    this.stack.addToHead(data);
+    if (this.hasRoom()) {
+      this.stack.addToHead(data);
+      this.size++;
+    } else {
+      throw new Error('Stack is full');
+    }
   }
 
   pop() {
-    if (this.size > 0) {
+    if (!this.isEmpty()) {
       const removedHead = this.stack.removeHead();
       this.size--;
       return removedHead;
     } else {
       return null;
     }
+  }
+
+  hasRoom() {
+    return this.size < this.maxSize;
+  }
+
+  isEmpty() {
+    return this.size === 0;
   }
 }
 

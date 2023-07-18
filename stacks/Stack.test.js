@@ -23,9 +23,9 @@ describe('Stack', () => {
 
   test('peek returns the first element in the stack', () => {
     const stack = new Stack();
-    stack.stack.addToHead('first');
+    stack.push('first');
     expect(stack.peek()).toEqual('first');
-    stack.stack.addToHead('second');
+    stack.push('second');
     expect(stack.peek()).toEqual('second');
   });
 
@@ -47,6 +47,12 @@ describe('Stack', () => {
     expect(stack.stack.head.data).toEqual('second');
   });
 
+  test('push throws an error if stack is full', () => {
+    const stack = new Stack(1);
+    stack.push('first');
+    expect(() => stack.push('second')).toThrow('Stack is full');
+  });
+
   test('has a pop method', () => {
     const stack = new Stack();
     expect(typeof stack.pop).toEqual('function');
@@ -63,5 +69,15 @@ describe('Stack', () => {
   test('stack has hasRoom method', () => {
     const stack = new Stack();
     expect(typeof stack.hasRoom).toEqual('function');
+  });
+
+  test('hasRoom returns true if the stack has room', () => {
+    const stack = new Stack(1);
+    expect(stack.hasRoom()).toEqual(true);
+  });
+
+  test('stack has isEmpty method', () => {
+    const stack = new Stack();
+    expect(typeof stack.isEmpty).toEqual('function');
   });
 });
