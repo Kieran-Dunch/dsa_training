@@ -76,6 +76,12 @@ describe('Stack', () => {
     expect(stack.hasRoom()).toEqual(true);
   });
 
+  test('hasRoom returns false if the stack is full', () => {
+    const stack = new Stack(1);
+    stack.push('first');
+    expect(stack.hasRoom()).toEqual(false);
+  });
+
   test('stack has isEmpty method', () => {
     const stack = new Stack();
     expect(typeof stack.isEmpty).toEqual('function');
