@@ -10,6 +10,11 @@ class HashMap {
     }
     return hashCode % this.hashmap.length;
   }
+
+  assign(key, value) {
+    const arrayIndex = this.hash(key);
+    this.hashmap[arrayIndex] = value;
+  }
 }
 
 module.exports = HashMap;

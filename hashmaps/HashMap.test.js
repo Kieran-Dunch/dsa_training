@@ -28,4 +28,19 @@ describe('HashMap', () => {
       expect(hash).toBeLessThan(hashmap.hashmap.length);
     });
   });
+
+  // assign method
+  describe('assign', () => {
+    it('should assign a value to a key', () => {
+      const hashmap = new HashMap();
+      hashmap.assign('key', 'value');
+      expect(hashmap.hashmap[hashmap.hash('key')]).toBe('value');
+    });
+
+    it('should assign a value to a key in a hashmap of any size', () => {
+      const hashmap = new HashMap(10);
+      hashmap.assign('key', 'value');
+      expect(hashmap.hashmap[hashmap.hash('key')]).toBe('value');
+    });
+  });
 });
