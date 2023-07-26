@@ -43,4 +43,14 @@ describe('HashMap', () => {
       expect(hashmap.hashmap[hashmap.hash('key')]).toBe('value');
     });
   });
+
+  // retrieve method
+  describe('retrieve', () => {
+
+    it('should retrieve a value from a key', () => {
+      const hashmap = new HashMap();
+      hashmap.assign('key', 'value');
+      expect(hashmap.retrieve('key')).toBe('value');
+    });
+  });
 });
