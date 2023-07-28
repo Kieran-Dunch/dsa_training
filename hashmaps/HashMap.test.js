@@ -32,20 +32,34 @@ describe('HashMap', () => {
   // assign method
   describe('assign', () => {
     it('should assign a value to a key', () => {
+      console.log('assign');
       const hashmap = new HashMap();
       hashmap.assign('key', 'value');
-      expect(hashmap.hashmap[hashmap.hash('key')]).toBe('value');
+      expect(hashmap.hashmap[hashmap.hash('key')].head).toBe('value');
     });
 
     it('should assign a value to a key in a hashmap of any size', () => {
+      console.log('assign size');
       const hashmap = new HashMap(10);
       hashmap.assign('key', 'value');
-      expect(hashmap.hashmap[hashmap.hash('key')]).toBe('value');
+      expect(hashmap.hashmap[hashmap.hash('key')].head.value).toBe('value');
+    });
+
+    it('should assign a value to a key in a linked list', () => {
+      console.log('assign linked list');
+      const hashmap = new HashMap();
+      hashmap.assign('key', 'value');
+      expect(hashmap.hashmap[hashmap.hash('key')].head.value).toBe('value');
     });
   });
 
   // retrieve method
   describe('retrieve', () => {
+
+    it('should have a method called retrieve', () => {
+      const hashmap = new HashMap();
+      expect(hashmap.retrieve).toBeDefined();
+    });
 
     it('should retrieve a value from a key', () => {
       const hashmap = new HashMap();
