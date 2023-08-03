@@ -60,10 +60,17 @@ describe('HashMap', () => {
       expect(hashmap.retrieve).toBeDefined();
     });
 
-    xit('should retrieve a value from a key', () => {
-      const hashmap = new HashMap();
+    it('should retrieve a value from a key', () => {
+      const hashmap = new HashMap(10);
       hashmap.assign('key', 'value');
       expect(hashmap.retrieve('key')).toBe('value');
+    });
+
+    it('should retrieve a value from a linked list with multiple values', () => {
+      const hashmap = new HashMap(1);
+      hashmap.assign('key', 'value');
+      hashmap.assign('key2', 'value2');
+      expect(hashmap.retrieve('key2')).toBe('value2');
     });
   });
 });

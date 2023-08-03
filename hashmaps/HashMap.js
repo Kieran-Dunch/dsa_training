@@ -36,7 +36,15 @@ class HashMap {
 
   retrieve(key) {
     const arrayIndex = this.hash(key);
-    return this.hashmap[arrayIndex];
+    let current = this.hashmap[arrayIndex].head;
+
+    while (current) {
+      if (current.data.key === key) {
+        return current.data.value;
+      }
+      current = current.getNextNode();
+    }
+    return null;
   }
 }
 
