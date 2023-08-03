@@ -43,6 +43,13 @@ describe('HashMap', () => {
       hashmap.assign('key', 'value');
       expect(hashmap.hashmap[hashmap.hash('key')].head.data.key).toBe('key');
     });
+
+    it('should assign a value to the end of a linked list', () => {
+      const hashmap = new HashMap(1);
+      hashmap.assign('key', 'value');
+      hashmap.assign('key2', 'value2');
+      expect(hashmap.hashmap[hashmap.hash('key')].head.next.data.key).toBe('key2');
+    })
   });
 
   // retrieve method

@@ -1,4 +1,5 @@
 const LinkedList = require('../LinkedList');
+const Node = require('../Node');
 
 class HashMap {
   constructor(size = 0) {
@@ -16,8 +17,6 @@ class HashMap {
   assign(key, value) {
     const arrayIndex = this.hash(key);
     const linkedList = this.hashmap[arrayIndex];
-    console.log('printing list');
-    console.log(linkedList)
     if (linkedList.head === null) {
       linkedList.addToHead({ key, value });
       return;
