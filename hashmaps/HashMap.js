@@ -22,6 +22,17 @@ class HashMap {
       linkedList.addToHead({ key, value });
       return;
     }
+    let current = linkedList.head;
+    while (current) {
+      if (current.data.key === key) {
+        current.data = { key, value };
+      }
+      if (!current.next) {
+        current.setNextNode(new Node({ key, value }));
+        break
+      }
+      current = current.getNextNode();
+    }
   }
 
   retrieve(key) {
