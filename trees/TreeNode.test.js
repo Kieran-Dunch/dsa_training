@@ -25,4 +25,20 @@ describe('TreeNode', () => {
     const node = new TreeNode(1);
     expect(node.children.length).toBe(0);
   });
+
+  describe('addChild', () => {
+    it('should add a child node', () => {
+      const node = new TreeNode(1);
+      const childNode = new TreeNode(2);
+      node.addChild(childNode);
+      expect(node.children.length).toBe(1);
+    });
+
+    it('should add a child node with the correct data', () => {
+      const node = new TreeNode(1);
+      const childNode = new TreeNode(2);
+      node.addChild(childNode);
+      expect(node.children[0].data).toBe(2);
+    });
+  });
 });
