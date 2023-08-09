@@ -59,4 +59,13 @@ describe('TreeNode', () => {
       expect(node.children[0]).toBeUndefined();
     });
   });
+
+  describe('print', () => {
+    it('should print the node data', () => {
+      const spy = jest.spyOn(console, 'log');
+      const node = new TreeNode(1);
+      node.print();
+      expect(spy).toHaveBeenCalledWith("1");
+    });
+  });
 });
