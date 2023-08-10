@@ -68,4 +68,23 @@ describe('TreeNode', () => {
       expect(spy).toHaveBeenCalledWith("1");
     });
   });
+
+  describe('depthFirstTraversal', () => {
+    it('should print the node data', () => {
+      const spy = jest.spyOn(console, 'log');
+      const node = new TreeNode(1);
+      node.depthFirstTraversal();
+      expect(spy).toHaveBeenCalledWith(1);
+    });
+
+    it('should print the node data and its children', () => {
+      const spy = jest.spyOn(console, 'log');
+      const node = new TreeNode(1);
+      const childNode = new TreeNode(2);
+      node.addChild(childNode);
+      node.depthFirstTraversal();
+      expect(spy).toHaveBeenCalledWith(1);
+      expect(spy).toHaveBeenCalledWith(2);
+    });
+  });
 });
