@@ -1,5 +1,3 @@
-// add test suite for the node class
-
 const Node = require('./Node');
 
 describe('Node', () => {
