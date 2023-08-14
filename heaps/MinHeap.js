@@ -8,6 +8,11 @@ class MinHeap {
     this.heap.push(value);
     this.size++;
   }
+
+  bubbleUp() {
+    let current = this.size;
+    console.log('current', current);
+  }
 }
 
 module.exports = MinHeap;

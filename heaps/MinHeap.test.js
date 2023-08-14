@@ -28,4 +28,11 @@ describe('MinHeap', () => {
       expect(minHeap.heap.length).toBe(2);
     });
   });
+
+  describe('bubbleUp', () => {
+    it('should be a function', () => {
+      const minHeap = new MinHeap();
+      expect(typeof minHeap.bubbleUp).toBe('function');
+    });
+  });
 });
