@@ -34,6 +34,21 @@ describe('MinHeap', () => {
       const minHeap = new MinHeap();
       expect(typeof minHeap.bubbleUp).toBe('function');
     });
+
+    it('should swap a value with its parent if it is smaller', () => {
+      const minHeap = new MinHeap();
+      minHeap.add(1);
+      minHeap.add(2);
+      expect(minHeap.heap[1]).toBe(1);
+    });
+
+    it('should swap a value with its grandparent if it is smaller', () => {
+      const minHeap = new MinHeap();
+      minHeap.add(1);
+      minHeap.add(2);
+      minHeap.add(5);
+      expect(minHeap.heap[1]).toBe(1);
+    });
   });
 
   describe('swap', () => {
