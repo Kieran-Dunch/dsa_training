@@ -11,8 +11,25 @@ class MinHeap {
 
   bubbleUp() {
     let current = this.size;
-    console.log('current', current);
+    let parent = getParent(current);
+    while (current > 1 && this.heap[parent] > this.heap[current]) {
+      this.swap(current, parent);
+      current = parent;
+    }
+  }
+
+  swap(current, parent) {
+    [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
   }
 }
 
-module.exports = MinHeap;
+const getParent = current => Math.floor((current / 2));
+const getLeft = current => current * 2;
+const getRight = current => current * 2 + 1;
+
+module.exports = {
+  MinHeap,
+  getParent,
+  getLeft,
+  getRight
+};
