@@ -22,6 +22,18 @@ class MinHeap {
     [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
   }
 
+  exists(index) {
+    return index <= this.size;
+  }
+
+  canSwap(current, leftChild, rightChild) {
+    // Check that one of the possible swap conditions exists
+    return (
+      this.exists(leftChild) && this.heap[current] > this.heap[leftChild]
+      || this.exists(rightChild) && this.heap[current] > this.heap[rightChild]
+    );
+  }
+
   popMin() {
     if (this.size === 0) return null;
     this.swap(1, this.size);

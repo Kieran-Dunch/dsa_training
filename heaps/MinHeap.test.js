@@ -88,5 +88,23 @@ describe('MinHeap', () => {
         expect(minHeap.heap.length).toBe(3);
       });
     });
+
+    describe('exists', () => {
+      it('should be a function', () => {
+        const minHeap = new MinHeap();
+        expect(typeof minHeap.exists).toBe('function');
+      });
+
+      it('should return true if an index exists in the heap', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        expect(minHeap.exists(1)).toBe(true);
+      });
+
+      it('should return false if an index does not exist in the heap', () => {
+        const minHeap = new MinHeap();
+        expect(minHeap.exists(1)).toBe(false);
+      });
+    });
   });
 });
