@@ -55,6 +55,7 @@ class MinHeap {
     this.swap(1, this.size);
     const min = this.heap.pop();
     this.size--;
+    this.heapify();
     return min;
   }
 }

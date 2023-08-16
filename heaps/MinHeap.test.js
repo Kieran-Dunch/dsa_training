@@ -138,5 +138,21 @@ describe('MinHeap', () => {
         expect(minHeap.canSwap(1, 2, 3)).toBe(false);
       });
     });
+
+    describe('heapify', () => {
+      it('should be a function', () => {
+        const minHeap = new MinHeap();
+        expect(typeof minHeap.heapify).toBe('function');
+      });
+
+      it('should swap a value with its smallest child', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(3);
+        minHeap.add(2);
+        minHeap.add(1);
+        minHeap.heapify();
+        expect(minHeap.heap[1]).toBe(1);
+      });
+    });
   });
 });
