@@ -106,5 +106,35 @@ describe('MinHeap', () => {
         expect(minHeap.exists(1)).toBe(false);
       });
     });
+
+    describe('canSwap', () => {
+      it('should be a function', () => {
+        const minHeap = new MinHeap();
+        expect(typeof minHeap.canSwap).toBe('function');
+      });
+
+      it('should return true if a value can be swapped with its left child', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        minHeap.add(2);
+        expect(minHeap.canSwap(1, 2, 3)).toBe(true);
+      });
+
+      it('should return true if a value can be swapped with its right child', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        minHeap.add(2);
+        minHeap.add(3);
+        expect(minHeap.canSwap(1, 2, 3)).toBe(true);
+      });
+
+      it('should return false if a value cannot be swapped with its children', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        minHeap.add(2);
+        minHeap.add(3);
+        expect(minHeap.canSwap(1, 2, 3)).toBe(true);
+      });
+    });
   });
 });
