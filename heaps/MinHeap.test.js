@@ -115,16 +115,18 @@ describe('MinHeap', () => {
 
       it('should return true if a value can be swapped with its left child', () => {
         const minHeap = new MinHeap();
-        minHeap.add(1);
+        minHeap.add(3);
         minHeap.add(2);
+        minHeap.add(1);
+        console.log(minHeap.heap);
         expect(minHeap.canSwap(1, 2, 3)).toBe(true);
       });
 
       it('should return true if a value can be swapped with its right child', () => {
         const minHeap = new MinHeap();
-        minHeap.add(1);
-        minHeap.add(2);
         minHeap.add(3);
+        minHeap.add(2);
+        minHeap.add(1);
         expect(minHeap.canSwap(1, 2, 3)).toBe(true);
       });
 
@@ -133,7 +135,7 @@ describe('MinHeap', () => {
         minHeap.add(1);
         minHeap.add(2);
         minHeap.add(3);
-        expect(minHeap.canSwap(1, 2, 3)).toBe(true);
+        expect(minHeap.canSwap(1, 2, 3)).toBe(false);
       });
     });
   });

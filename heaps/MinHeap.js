@@ -27,7 +27,6 @@ class MinHeap {
   }
 
   canSwap(current, leftChild, rightChild) {
-    // Check that one of the possible swap conditions exists
     return (
       this.exists(leftChild) && this.heap[current] > this.heap[leftChild]
       || this.exists(rightChild) && this.heap[current] > this.heap[rightChild]
