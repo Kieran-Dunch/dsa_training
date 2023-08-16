@@ -18,6 +18,23 @@ class MinHeap {
     }
   }
 
+  heapify() {
+    let current = 1;
+    let leftChild = getLeft(current);
+    let rightChild = getRight(current);
+    while (this.canSwap(current, leftChild, rightChild)) {
+      if (this.exists(leftChild) && this.exists(rightChild) && this.heap[leftChild] > this.heap[rightChild]) {
+        this.swap(current, rightChild);
+        current = rightChild;
+      } else {
+        this.swap(current, leftChild);
+        current = leftChild;
+      }
+      leftChild = getLeft(current);
+      rightChild = getRight(current);
+    }
+  }
+
   swap(current, parent) {
     [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
   }
