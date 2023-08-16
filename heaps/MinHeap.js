@@ -21,6 +21,14 @@ class MinHeap {
   swap(current, parent) {
     [this.heap[current], this.heap[parent]] = [this.heap[parent], this.heap[current]];
   }
+
+  popMin() {
+    if (this.size === 0) return null;
+    this.swap(1, this.size);
+    const min = this.heap.pop();
+    this.size--;
+    return min;
+  }
 }
 
 const getParent = current => Math.floor((current / 2));

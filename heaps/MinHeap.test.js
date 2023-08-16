@@ -64,5 +64,29 @@ describe('MinHeap', () => {
       minHeap.swap(1, 2);
       expect(minHeap.heap[1]).toBe(2);
     });
+
+    describe('popMin', () => {
+      it('should be a function', () => {
+        const minHeap = new MinHeap();
+        expect(typeof minHeap.popMin).toBe('function');
+      });
+
+      it('should return the minimum value in the heap', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        minHeap.add(2);
+        minHeap.add(3);
+        expect(minHeap.popMin()).toBe(1);
+      });
+
+      it('should remove the minimum value from the heap', () => {
+        const minHeap = new MinHeap();
+        minHeap.add(1);
+        minHeap.add(2);
+        minHeap.add(3);
+        minHeap.popMin();
+        expect(minHeap.heap.length).toBe(3);
+      });
+    });
   });
 });
