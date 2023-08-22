@@ -36,4 +36,24 @@ describe('Graph', () => {
       expect(graph.vertices).toEqual([vertexA, vertexC]);
     });
   });
+
+  describe('addEdge', () => {
+    it('should be a function', () => {
+      const graph = new Graph();
+      expect(typeof graph.addEdge).toEqual('function');
+    });
+
+    it('should add an edge between two vertices', () => {
+      const graph = new Graph();
+      const vertexA = graph.addVertex('A');
+      const vertexB = graph.addVertex('B');
+      graph.addEdge(vertexA, vertexB);
+      expect(vertexA.edges.length).toEqual(1);
+      expect(vertexB.edges.length).toEqual(1);
+      expect(vertexA.edges[0].start).toEqual(vertexA);
+      expect(vertexA.edges[0].end).toEqual(vertexB);
+      expect(vertexB.edges[0].start).toEqual(vertexB);
+      expect(vertexB.edges[0].end).toEqual(vertexA);
+    });
+  });
 });
