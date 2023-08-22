@@ -12,6 +12,10 @@ class Graph {
     return newVertex;
   }
 
+  removeVertex(vertex) {
+    this.vertices = this.vertices.filter(v => v !== vertex);
+  }
+
   print() {
     this.vertices.forEach(vertex => vertex.print());
   }
