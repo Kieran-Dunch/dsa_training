@@ -27,4 +27,20 @@ describe('Vertex', () => {
       expect(() => vertex.addEdge('B')).toThrow();
     });
   });
+
+  describe('removeEdge', () => {
+    it('should be a function', () => {
+      const vertex = new Vertex('A');
+      expect(typeof vertex.removeEdge).toEqual('function');
+    });
+
+    it("should remove the edge from the vertex's edges", () => {
+      const vertexA = new Vertex('A');
+      const vertexB = new Vertex('B');
+      vertexA.addEdge(vertexB);
+      expect(vertexA.edges.length).toEqual(1);
+      vertexA.removeEdge(vertexB);
+      expect(vertexA.edges.length).toEqual(0);
+    });
+  });
 });

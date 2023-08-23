@@ -6,8 +6,7 @@ class Vertex {
     this.edges = [];
   }
 
-  addEdge(vertex, weight) {
-    // check if instance of vertex class
+  addEdge(vertex) {
     if ((vertex instanceof Vertex)) {
       const newEdge = new Edge(this, vertex);
       this.edges.push(newEdge);
@@ -15,6 +14,10 @@ class Vertex {
     } else {
       throw new Error('edge start and end must both be vertices');
     }
+  }
+
+  removeEdge(vertex) {
+    this.edges = this.edges.filter(edge => edge.end !== vertex);
   }
 
   print() {
