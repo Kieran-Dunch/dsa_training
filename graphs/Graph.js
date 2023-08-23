@@ -25,6 +25,15 @@ class Graph {
     }
   }
 
+  removeEdge(vertexOne, vertexTwo) {
+    if (vertexOne instanceof Vertex && vertexTwo instanceof Vertex) {
+      vertexOne.removeEdge(vertexTwo);
+      vertexTwo.removeEdge(vertexOne);
+    } else {
+      throw new Error('oops! Not a vertex.')
+    }
+  }
+
   print() {
     this.vertices.forEach(vertex => vertex.print());
   }
