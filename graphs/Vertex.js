@@ -6,9 +6,9 @@ class Vertex {
     this.edges = [];
   }
 
-  addEdge(vertex) {
+  addEdge(vertex, weight) {
     if ((vertex instanceof Vertex)) {
-      const newEdge = new Edge(this, vertex);
+      const newEdge = new Edge(this, vertex, weight);
       this.edges.push(newEdge);
       return newEdge;
     } else {

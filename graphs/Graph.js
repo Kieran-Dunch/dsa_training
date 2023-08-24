@@ -2,8 +2,9 @@ const Edge = require('./Edge');
 const Vertex = require('./Vertex');
 
 class Graph {
-  constructor() {
+  constructor(isWeighted = false) {
     this.vertices = [];
+    this.isWeighted = isWeighted;
   }
 
   addVertex(data) {
