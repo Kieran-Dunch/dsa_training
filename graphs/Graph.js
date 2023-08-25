@@ -17,10 +17,11 @@ class Graph {
     this.vertices = this.vertices.filter(v => v !== vertex);
   }
 
-  addEdge(vertex1, vertex2) {
+  addEdge(vertex1, vertex2, weight) {
+    const edgeWeight = this.isWeighted ? weight : null;
     if (vertex1 instanceof Vertex && vertex2 instanceof Vertex) {
-      vertex1.addEdge(vertex2);
-      vertex2.addEdge(vertex1);
+      vertex1.addEdge(vertex2, edgeWeight);
+      vertex2.addEdge(vertex1, edgeWeight);
     } else {
       throw new Error('edge start and end must both be vertices');
     }

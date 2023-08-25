@@ -26,6 +26,14 @@ describe('Vertex', () => {
       const vertex = new Vertex('A');
       expect(() => vertex.addEdge('B')).toThrow();
     });
+
+    it('should add a weighted edge to the vertex if graph is weighted', () => {
+      const vertexA = new Vertex('A');
+      const vertexB = new Vertex('B');
+      vertexA.addEdge(vertexB, 10);
+      expect(vertexA.edges.length).toEqual(1);
+      expect(vertexA.edges[0].weight).toEqual(10);
+    });
   });
 
   describe('removeEdge', () => {

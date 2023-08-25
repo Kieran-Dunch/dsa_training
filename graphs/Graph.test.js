@@ -55,6 +55,15 @@ describe('Graph', () => {
       expect(vertexB.edges[0].start).toEqual(vertexB);
       expect(vertexB.edges[0].end).toEqual(vertexA);
     });
+
+    it('should add a weighted edge between two vertices if graph is weighted', () => {
+      const graph = new Graph(true);
+      const vertexA = graph.addVertex('A');
+      const vertexB = graph.addVertex('B');
+      graph.addEdge(vertexA, vertexB, 1);
+      expect(vertexA.edges[0].weight).toEqual(1);
+      expect(vertexB.edges[0].weight).toEqual(1);
+    });
   });
 
   describe('removeEdge', () => {
