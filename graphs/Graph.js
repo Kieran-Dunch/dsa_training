@@ -2,9 +2,10 @@ const Edge = require('./Edge');
 const Vertex = require('./Vertex');
 
 class Graph {
-  constructor(isWeighted = false) {
+  constructor(isWeighted = false, isDirected = false) {
     this.vertices = [];
     this.isWeighted = isWeighted;
+    this.isDirected = isDirected;
   }
 
   addVertex(data) {
@@ -21,7 +22,9 @@ class Graph {
     const edgeWeight = this.isWeighted ? weight : null;
     if (vertex1 instanceof Vertex && vertex2 instanceof Vertex) {
       vertex1.addEdge(vertex2, edgeWeight);
-      vertex2.addEdge(vertex1, edgeWeight);
+      if (!this.isDirected) {
+        vertex2.addEdge(vertex1, edgeWeight);
+      }
     } else {
       throw new Error('edge start and end must both be vertices');
     }
@@ -30,7 +33,9 @@ class Graph {
   removeEdge(vertexOne, vertexTwo) {
     if (vertexOne instanceof Vertex && vertexTwo instanceof Vertex) {
       vertexOne.removeEdge(vertexTwo);
-      vertexTwo.removeEdge(vertexOne);
+      if (!this.isDirected) {
+        vertexTwo.removeEdge(vertexOne);
+      }
     } else {
       throw new Error('oops! Not a vertex.')
     }
