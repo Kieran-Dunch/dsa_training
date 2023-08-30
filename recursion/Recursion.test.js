@@ -1,8 +1,8 @@
-// // import recursion file
-// import { recursiveFactorial } from './Recursion';
+// import recursion file
+import recursiveFactorial from './Recursion';
 
-// describe('Recursive Factorial', () => {
-//   it('should be a function', () => {
-//     expect(typeof recursiveFactorial).toBe('function');
-//   });
-// });
+describe('Recursive Factorial', () => {
+  it('should be a function', () => {
+    expect(typeof recursiveFactorial).toBe('function');
+  });
+});
