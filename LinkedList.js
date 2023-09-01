@@ -46,6 +46,17 @@ class LinkedList {
     console.log(output)
     return output;
   }
+
+  // find node recursively
+  findNodeRecursively(data, currentNode = this.head) {
+    if (!currentNode) {
+      return null;
+    } else if (currentNode.data === data) {
+      return currentNode;
+    } else {
+      return this.findNodeRecursively(data, currentNode.getNextNode());
+    }
+  }
 }
 
 
