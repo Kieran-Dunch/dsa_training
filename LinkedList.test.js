@@ -52,4 +52,15 @@ describe('LinkedList methods', () => {
     linkedList.addToHead(3);
     expect(linkedList.printList()).toBe('<head> 3 2 1 <tail>');
   });
+
+  it('should be able to find a node recursively', () => {
+    const linkedList = new LinkedList();
+    linkedList.addToHead(1);
+    linkedList.addToHead(2);
+    linkedList.addToHead(3);
+    expect(linkedList.findNodeRecursively(1).data).toBe(1);
+    expect(linkedList.findNodeRecursively(2).data).toBe(2);
+    expect(linkedList.findNodeRecursively(3).data).toBe(3);
+    expect(linkedList.findNodeRecursively(4)).toBeNull();
+  });
 });
