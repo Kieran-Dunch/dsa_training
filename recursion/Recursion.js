@@ -1,3 +1,4 @@
+// basic recursive case
 const recursiveFactorial = (n) => {
 
   // recursive case
@@ -10,6 +11,9 @@ const recursiveFactorial = (n) => {
     return 1;
   }
 }
+
+// finding a node in linked list using recursion
+// look in linkedList.js
 
 module.exports = {
   recursiveFactorial
