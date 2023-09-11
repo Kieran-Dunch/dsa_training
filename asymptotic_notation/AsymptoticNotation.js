@@ -74,7 +74,7 @@ function containsDuplicates(items) {
 // generally interested in worst-case performance.
 
 // Example:
-function contains(items, match) {
+function containsExample(items, match) {
   for (let i = 0; i < items.length; i++) {
     if (items[i] === match) {
       return true;
@@ -87,3 +87,10 @@ function contains(items, match) {
 // otherwise, it will return false. The best-case scenario is that the match
 // is found during the first iteration, and the function will return true.
 // This would result in a Big Omega notation of Ω(1).
+
+
+module.exports = {
+  doSomething,
+  contains,
+  containsDuplicates
+};
