@@ -1,3 +1,7 @@
+const merge = (leftArr, rightArr) => {
+};
+
+
 const mergeSort = (arr) => {
   // base case is when the array is length 1
   if (arr.length < 2) return arr;
