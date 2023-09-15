@@ -1,4 +1,15 @@
 const merge = (leftArr, rightArr) => {
+  const sortedArray = [];
+
+  while (leftArr.length && rightArr.length) {
+    if (leftArr[0] <= rightArr[0]) {
+      sortedArray.push(leftArr.shift());
+    } else {
+      sortedArray.push(rightArr.shift());
+    }
+  }
+
+  return sortedArray.concat(leftArr.slice().concat(rightArr.slice()));
 };
 
 
