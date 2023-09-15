@@ -25,3 +25,6 @@ const mergeSort = (arr) => {
   // recursively call mergeSort on each half
   return merge(mergeSort(leftArr), mergeSort(rightArr));
 };
+
+
+module.exports = mergeSort;
