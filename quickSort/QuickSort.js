@@ -23,5 +23,21 @@ const partition = (arr, left, right) => {
   return i;
 };
 
-const quickSort = (arr) => {
+const quickSort = (array, leftBound = 0, rightBound = array.length - 1) => {
+  let left = leftBound;
+  let right = rightBound;
+
+  if (array.length > 1) {
+    const index = partition(array, left, right);
+
+    if (left < index - 1) {
+      quickSort(array, left, index - 1);
+    }
+
+    if (index < right) {
+      quickSort(array, index, right);
+    }
+  }
+
+  return array;
 };
