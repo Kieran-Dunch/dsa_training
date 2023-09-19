@@ -41,3 +41,5 @@ const quickSort = (array, leftBound = 0, rightBound = array.length - 1) => {
 
   return array;
 };
+
+module.exports = quickSort
