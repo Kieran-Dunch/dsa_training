@@ -27,3 +27,6 @@ const binarySearch = (arr, target) => {
 // Binary search will always be O(log n) because it cuts the search space in
 // half each iteration. This is because the search space is always sorted.
 // If the search space is not sorted, then binary search will not work.
+
+
+module.exports = binarySearch;
