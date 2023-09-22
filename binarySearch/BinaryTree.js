@@ -40,4 +40,14 @@ class BinaryTree {
       return null;
     }
   }
+
+  depthFirstTraversal() {
+    if (this.left) {
+      this.left.depthFirstTraversal();
+    }
+    console.log(`Depth=${this.depth}, Value=${this.value}`);
+    if (this.right) {
+      this.right.depthFirstTraversal();
+    }
+  }
 }
