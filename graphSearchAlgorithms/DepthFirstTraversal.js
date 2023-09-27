@@ -1,4 +1,4 @@
-const graph = require('../graphs/Graph');
+const Graph = require('../graphs/Graph');
 
 const depthFirstTraversal = (start, visitedVertices = [start]) => {
   start.edges.forEach(edge => {
