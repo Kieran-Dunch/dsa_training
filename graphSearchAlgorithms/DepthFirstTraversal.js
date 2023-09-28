@@ -1,6 +1,8 @@
 const Graph = require('../graphs/Graph');
 
 const depthFirstTraversal = (start, callback, visitedVertices = [start]) => {
+  callback(start);
+
   start.edges.forEach(edge => {
     const neighbor = edge.end;
     if (!visitedVertices.includes(neighbor)) {
@@ -9,3 +11,5 @@ const depthFirstTraversal = (start, callback, visitedVertices = [start]) => {
     }
   });
 };
+
+module.exports = depthFirstTraversal;
