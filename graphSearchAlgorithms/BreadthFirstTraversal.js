@@ -23,6 +23,6 @@ const breadthFirstTraversal = (startVertex, callback) => {
       }
     });
   }
-
-
 };
+
+module.exports = breadthFirstTraversal;

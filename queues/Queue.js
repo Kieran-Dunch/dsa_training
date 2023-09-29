@@ -18,6 +18,10 @@ class Queue {
     console.log(`Removed ${data}! Queue size is now ${this.size}.`);
     return data;
   }
+
+  isEmpty() {
+    return this.size === 0;
+  }
 }
 
 module.exports = Queue;
