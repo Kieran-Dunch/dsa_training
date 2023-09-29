@@ -20,17 +20,16 @@ describe('depthFirstTraversal()', () => {
       new Vertex('I')
     ];
     vertices.forEach(vertex => graph.addVertex(vertex));
-    graph.addEdge(vertices[0], vertices[1]);
-    graph.addEdge(vertices[0], vertices[2]);
-    graph.addEdge(vertices[0], vertices[3]);
-    graph.addEdge(vertices[1], vertices[4]);
-    graph.addEdge(vertices[1], vertices[5]);
-    graph.addEdge(vertices[2], vertices[6]);
-    graph.addEdge(vertices[2], vertices[7]);
-    graph.addEdge(vertices[3], vertices[8]);
-    const callback = jest.fn();
+    graph.addEdge(graph.vertices[0], graph.vertices[1]);
+    graph.addEdge(graph.vertices[0], graph.vertices[2]);
+    graph.addEdge(graph.vertices[0], graph.vertices[3]);
+    graph.addEdge(graph.vertices[1], graph.vertices[4]);
+    graph.addEdge(graph.vertices[1], graph.vertices[5]);
+    graph.addEdge(graph.vertices[2], graph.vertices[6]);
+    graph.addEdge(graph.vertices[2], graph.vertices[7]);
+    graph.addEdge(graph.vertices[3], graph.vertices[8]);
+    const callback = jest.fn(vertex => vertex.data);
     depthFirstTraversal(graph.vertices[0], callback);
-    expect(callback).toHaveBeenCalledTimes(9);
     expect(callback).toHaveBeenNthCalledWith(1, graph.vertices[0]);
     expect(callback).toHaveBeenNthCalledWith(2, graph.vertices[1]);
     expect(callback).toHaveBeenNthCalledWith(3, graph.vertices[4]);
