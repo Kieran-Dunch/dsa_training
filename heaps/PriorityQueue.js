@@ -15,4 +15,10 @@ class PriorityQueue {
     this.size++;
     this.bubbleUp();
   }
+
+  isEmpty() {
+    return this.size === 0;
+  }
 }
+
+module.exports = PriorityQueue;

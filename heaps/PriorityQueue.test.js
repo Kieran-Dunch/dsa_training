@@ -27,4 +27,21 @@ describe('PriorityQueue', () => {
       expect(queue.heap[1].priority).toEqual(1);
     });
   });
+
+  describe('isEmpty', () => {
+    it('should be a function', () => {
+      expect(typeof PriorityQueue.prototype.isEmpty).toEqual('function');
+    });
+
+    it('should return true if the queue is empty', () => {
+      const queue = new PriorityQueue();
+      expect(queue.isEmpty()).toEqual(true);
+    });
+
+    it('should return false if the queue is not empty', () => {
+      const queue = new PriorityQueue();
+      queue.add(5, 1);
+      expect(queue.isEmpty()).toEqual(false);
+    });
+  });
 });
