@@ -19,6 +19,18 @@ class PriorityQueue {
   isEmpty() {
     return this.size === 0;
   }
+
+  popMin() {
+    if (this.size === 0) {
+      return null;
+    }
+    const min = this.heap[1];
+    this.heap[1] = this.heap[this.size];
+    this.heap.pop();
+    this.size--;
+    this.heapify();
+    return min;
+  }
 }
 
 module.exports = PriorityQueue;

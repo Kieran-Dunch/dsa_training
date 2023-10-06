@@ -44,4 +44,23 @@ describe('PriorityQueue', () => {
       expect(queue.isEmpty()).toEqual(false);
     });
   });
+
+  describe('popMin', () => {
+    it('should be a function', () => {
+      expect(typeof PriorityQueue.prototype.popMin).toEqual('function');
+    });
+
+    it('should return null if the queue is empty', () => {
+      const queue = new PriorityQueue();
+      expect(queue.popMin()).toEqual(null);
+    });
+
+    it('should return the minimum value in the queue', () => {
+      const queue = new PriorityQueue();
+      queue.add(5, 1);
+      queue.add(6, 2);
+      queue.add(7, 3);
+      expect(queue.popMin().value).toEqual(5);
+    });
+  });
 });
