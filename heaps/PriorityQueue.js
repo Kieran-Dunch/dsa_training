@@ -44,17 +44,37 @@ class PriorityQueue {
     let current = 1;
     let leftChild = getLeft(current);
     let rightChild = getRight(current);
-    let childToSwap;
-    while (leftChild && rightChild && (
-      this.heap[leftChild].priority < this.heap[current].priority ||
-      this.heap[rightChild].priority < this.heap[current].priority
-    )) {
-      childToSwap = this.heap[leftChild].priority < this.heap[rightChild].priority ? leftChild : rightChild;
-      this.swap(current, childToSwap);
-      current = childToSwap;
+    while (this.canSwap(current, leftChild, rightChild)) {
+      if (this.exists(leftChild) && this.exists(rightChild)) {
+        if (this.heap[leftChild].priority < this.heap[rightChild].priority) {
+          this.swap(current, leftChild);
+          current = leftChild;
+        } else {
+          this.swap(current, rightChild);
+          current = rightChild;
+        }
+      } else {
+        this.swap(current, leftChild);
+        current = leftChild;
+      }
       leftChild = getLeft(current);
       rightChild = getRight(current);
     }
+  }
+
+  swap(a, b) {
+    [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
+  }
+
+  exists(index) {
+    return index <= this.size;
+  }
+
+  canSwap(current, leftChild, rightChild) {
+    return (
+      this.exists(leftChild) && this.heap[current].priority > this.heap[leftChild].priority ||
+      this.exists(rightChild) && this.heap[current].priority > this.heap[rightChild].priority
+    );
   }
 }
 
