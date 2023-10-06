@@ -63,4 +63,19 @@ describe('PriorityQueue', () => {
       expect(queue.popMin().value).toEqual(5);
     });
   });
+
+  describe('bubbleUp', () => {
+    it('should be a function', () => {
+      expect(typeof PriorityQueue.prototype.bubbleUp).toEqual('function');
+    });
+
+    it('should swap the last element with its parent if the parent is greater', () => {
+      const queue = new PriorityQueue();
+      queue.add(5, 1);
+      queue.add(6, 2);
+      queue.add(7, 3);
+      queue.add(4, 0);
+      expect(queue.heap[1].value).toEqual(4);
+    });
+  });
 });

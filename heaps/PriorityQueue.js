@@ -31,6 +31,14 @@ class PriorityQueue {
     this.heapify();
     return min;
   }
+
+  bubbleUp() {
+    let current = this.size;
+    while (current > 1 && this.heap[getParent(current)].priority > this.heap[current].priority) {
+      this.swap(current, getParent(current));
+      current = getParent(current);
+    }
+  }
 }
 
 module.exports = PriorityQueue;
