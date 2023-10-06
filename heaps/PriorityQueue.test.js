@@ -78,4 +78,21 @@ describe('PriorityQueue', () => {
       expect(queue.heap[1].value).toEqual(4);
     });
   });
+
+  describe('heapify', () => {
+    it('should be a function', () => {
+      expect(typeof PriorityQueue.prototype.heapify).toEqual('function');
+    });
+
+    it('should swap the first element with its smallest child if the child is smaller', () => {
+      const queue = new PriorityQueue();
+      queue.add(5, 1);
+      queue.add(6, 2);
+      queue.add(7, 3);
+      queue.add(4, 0);
+      expect(queue.heap[1].value).toEqual(4);
+      queue.heapify();
+      expect(queue.heap[1].value).toEqual(5);
+    });
+  });
 });

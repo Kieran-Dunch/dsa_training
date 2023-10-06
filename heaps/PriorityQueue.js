@@ -39,6 +39,27 @@ class PriorityQueue {
       current = getParent(current);
     }
   }
+
+  heapify() {
+    let current = 1;
+    let leftChild = getLeft(current);
+    let rightChild = getRight(current);
+    let childToSwap;
+    while (leftChild && rightChild && (
+      this.heap[leftChild].priority < this.heap[current].priority ||
+      this.heap[rightChild].priority < this.heap[current].priority
+    )) {
+      childToSwap = this.heap[leftChild].priority < this.heap[rightChild].priority ? leftChild : rightChild;
+      this.swap(current, childToSwap);
+      current = childToSwap;
+      leftChild = getLeft(current);
+      rightChild = getRight(current);
+    }
+  }
 }
+
+const getParent = (current) => Math.floor(current / 2);
+const getLeft = (current) => current * 2;
+const getRight = (current) => current * 2 + 1;
 
 module.exports = PriorityQueue;
