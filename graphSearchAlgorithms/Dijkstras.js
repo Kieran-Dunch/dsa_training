@@ -31,4 +31,19 @@ const djikstras = (graph, startingVertex) => {
   return { distances, previous };
 };
 
-module.exports = { djikstras };
+const shortestPathBetween = (graph, startingVertex, targetVertex) => {
+  const { distances, previous } = dijkstras(graph, startingVertex);
+
+  const distance = distances[targetVertex.data];
+  const path = [];
+  let vertex = targetVertex;
+
+  while (vertex) {
+    path.unshift(vertex);
+    vertex = previous[vertex.data];
+  }
+
+  return { distance: distance, path };
+};
+
+module.exports = djikstras;
