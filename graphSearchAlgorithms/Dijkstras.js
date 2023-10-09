@@ -5,6 +5,7 @@ const djikstras = (graph, startingVertex) => {
   const distances = {};
   const previous = {};
   const queue = new PriorityQueue();
+
   queue.add(startingVertex, 0);
 
   graph.vertices.forEach((vertex) => {
@@ -14,7 +15,7 @@ const djikstras = (graph, startingVertex) => {
   distances[startingVertex.data] = 0;
 
   while (!queue.isEmpty()) {
-    const { vertex } = queue.popMin().value;
+    const vertex = queue.popMin().value;
 
     vertex.edges.forEach((edge) => {
       const alternate = edge.weight + distances[vertex.data];
