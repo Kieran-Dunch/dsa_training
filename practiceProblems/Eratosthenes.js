@@ -13,3 +13,9 @@
 // this number.
 // 5. Repeat steps 3 and 4 until the counter is greater than the specified
 // maximum value.
+
+const sieveOfEratosthenes = (max) => {
+  const output = new Array(max + 1).fill(true);
+  output[0] = false;
+  output[1] = false;
+};
