@@ -18,4 +18,20 @@ const sieveOfEratosthenes = (max) => {
   const output = new Array(max + 1).fill(true);
   output[0] = false;
   output[1] = false;
+
+  for (let i = 2; i <= max; i++) {
+    if (output[i]) {
+      for (let j = i * 2; j <= max; j += i) {
+        output[j] = false;
+      }
+    }
+  }
+
+  return output.reduce((acc, curr, index, array) => {
+    if (curr) {
+      acc.push(index);
+    }
+    return acc;
+  }, []);
+
 };
