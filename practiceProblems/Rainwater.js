@@ -20,3 +20,26 @@ const naiveRainwater = (heights) => {
   }
   return totalWater;
 }
+
+// optimized solution
+// time complexity: O(n)
+
+const optimizedRainwater = (heights) => {
+  totalWater = 0;
+  let left = 0;
+  let right = heights.length - 1;
+  let leftMax = 0;
+  let rightMax = 0;
+
+  while (left < right) {
+    if (heights[left] < heights[right]) {
+      leftMax = heights[left];
+      totalWater += leftMax - heights[left];
+      left++;
+    } else {
+      rightMax = heights[right];
+      totalWater += rightMax - heights[right];
+      right--;
+    }
+  }
+}
