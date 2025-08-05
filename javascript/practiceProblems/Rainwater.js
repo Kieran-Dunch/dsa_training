@@ -25,7 +25,7 @@ const naiveRainwater = (heights) => {
 // time complexity: O(n)
 
 const optimizedRainwater = (heights) => {
-  totalWater = 0;
+  let totalWater = 0;
   let left = 0;
   let right = heights.length - 1;
   let leftMax = 0;
@@ -33,13 +33,25 @@ const optimizedRainwater = (heights) => {
 
   while (left < right) {
     if (heights[left] < heights[right]) {
-      leftMax = heights[left];
-      totalWater += leftMax - heights[left];
+      if (heights[left] >= leftMax) {
+        leftMax = heights[left];
+      } else {
+        totalWater += leftMax - heights[left];
+      }
       left++;
     } else {
-      rightMax = heights[right];
-      totalWater += rightMax - heights[right];
+      if (heights[right] >= rightMax) {
+        rightMax = heights[right];
+      } else {
+        totalWater += rightMax - heights[right];
+      }
       right--;
     }
   }
+  return totalWater;
 }
+
+module.exports = {
+  naiveRainwater,
+  optimizedRainwater
+};
