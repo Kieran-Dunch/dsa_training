@@ -66,3 +66,8 @@ const sieveOfEratosthenesOpt = (limit) => {
     return primes
   }, []);
 };
+
+module.exports = {
+  sieveOfEratosthenes,
+  sieveOfEratosthenesOpt
+};
